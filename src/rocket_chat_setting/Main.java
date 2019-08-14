@@ -70,6 +70,7 @@ public class Main {
 		String output = null;
 
 		try {
+			
 			if (parameters.size() == 1) {
 				// getSetting
 				Setting setting = rcc.getSettingsApi().getById(parameters.get(0));
@@ -90,6 +91,9 @@ public class Main {
 					output = "[" + parameters.get(0) + "] -> " + parameters.get(1);
 				}
 			}
+			
+			rcc.logout();
+	
 		} catch (IOException e) {
 			if (verbose) {
 				e.printStackTrace();
