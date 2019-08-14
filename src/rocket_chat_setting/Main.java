@@ -42,7 +42,7 @@ public class Main {
 			commander.parse(argv);
 			main.run();
 		} catch (ParameterException e) {
-			System.out.println(e.getMessage()+"\n");
+			System.out.println(e.getMessage() + "\n");
 			commander.usage();
 		}
 	}
@@ -57,7 +57,12 @@ public class Main {
 			try {
 				rcc.trustSelfSignedCertificates();
 			} catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
-				System.out.println(e.getMessage());
+				if (verbose) {
+					e.printStackTrace();
+				} else {
+					System.out.println(e.getMessage());
+				}
+				
 				System.exit(1);
 			}
 		}
@@ -86,7 +91,12 @@ public class Main {
 				}
 			}
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			if (verbose) {
+				e.printStackTrace();
+			} else {
+				System.out.println(e.getMessage());
+			}
+
 			System.exit(1);
 		}
 
