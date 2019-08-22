@@ -17,12 +17,16 @@ an adapted version of https://github.com/baloise/rocket-chat-rest-client.
 marco@Marcos-MacBook-Pro-2019 ~> java -jar RocketchatSetting.jar 
 The following options are required: [-u], [-l], [-p]
 
-Usage: <main class> [options] setting_id [valueToSet]
+Usage: <main class> [options] [ setting_key ]... | if set mode: [ setting_key 
+      setting_value ]...
   Options:
   * -l
       username
   * -p
       password
+    -s
+      Enable set mode, expects key/value tuples a parameters
+      Default: false
     -t
       Trust all HTTPS certificates
       Default: false
@@ -32,3 +36,7 @@ Usage: <main class> [options] setting_id [valueToSet]
       Verbose output
       Default: false
 ```
+
+## Changes
+
+* Aug 22, 19 - Support for direct read/set of multiple settings
