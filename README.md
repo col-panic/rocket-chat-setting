@@ -14,19 +14,18 @@ an adapted version of https://github.com/baloise/rocket-chat-rest-client.
 ## Usage
 
 ```
-marco@Marcos-MacBook-Pro-2019 ~> java -jar RocketchatSetting.jar 
+$> java -jar RocketchatSetting.jar 
 The following options are required: [-u], [-l], [-p]
 
-Usage: <main class> [options] [ setting_key ]... | if set mode: [ setting_key 
-      setting_value ]...
+Usage: <main class> [options]
   Options:
   * -l
       username
   * -p
       password
     -s
-      Enable set mode, expects key/value tuples a parameters
-      Default: false
+      values to set as key=value; multiple occurences allowed
+      Default: []
     -t
       Trust all HTTPS certificates
       Default: false
@@ -37,6 +36,17 @@ Usage: <main class> [options] [ setting_key ]... | if set mode: [ setting_key
       Default: false
 ```
 
+## Examples
+
+```
+java -jar /RocketchatSetting.jar -l AdminUser -p AdminPassword -u https://my.service/chat -v \
+    -s SAML_Custom_Default=true -s SAML_Custom_Default_provider=rocketchat-saml \
+    -s SAML_Custom_Default_issuer=rocketchat-saml -s SAML_Custom_Default_button_label_text=Some_Text \
+    -s SAML_Custom_Default_name_overwrite=true  -s SAML_Custom_Default_mail_overwrite=true \
+    -s SAML_Custom_Default_generate_username=false -s SAML_Custom_Default_immutable_property=Username
+```
+
 ## Changes
 
+* Jan 15, 20 - major refactorings
 * Aug 22, 19 - Support for direct read/set of multiple settings
