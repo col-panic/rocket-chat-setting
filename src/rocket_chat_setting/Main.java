@@ -74,7 +74,7 @@ public class Main {
 			
 			for (String setParamPair : set) {
 				if (setParamPair.contains("=")) {
-					String[] keyValue = setParamPair.split("=");
+					String[] keyValue = setParamPair.split("=", 2);
 					String key = keyValue[0];
 					String value = (keyValue.length > 1) ? keyValue[1] : "";
 					try {
